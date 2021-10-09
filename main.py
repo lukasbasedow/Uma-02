@@ -1,16 +1,19 @@
+import sys
+
 import matplotlib.pyplot as plt
+from numpy.random import randint
 
-x = [1, 1, 2, 3, 3, 5, 7, 8, 9, 10,
-     10, 11, 11, 13, 13, 15, 16, 17, 18, 18,
-     18, 19, 20, 21, 21, 23, 24, 24, 25, 25,
-     25, 25, 26, 26, 26, 27, 27, 27, 27, 27,
-     29, 30, 30, 31, 33, 34, 34, 34, 35, 36,
-     36, 37, 37, 38, 38, 39, 40, 41, 41, 42,
-     43, 44, 45, 45, 46, 47, 48, 48, 49, 50,
-     51, 52, 53, 54, 55, 55, 56, 57, 58, 60,
-     61, 63, 64, 65, 66, 68, 70, 71, 72, 74,
-     75, 77, 81, 83, 84, 87, 89, 90, 90, 91
-     ]
+number = []
+size = sys.getsizeof(number)
+counter = 0
 
-plt.hist(x, bins=10)
+while size < 16*1048576:
+    value = randint(0, 255)
+    size = sys.getsizeof(number)
+    counter = counter +1
+    number.append(value)
+
+print(counter)
+print(sys.getsizeof(number))
+plt.hist(number, bins=25)
 plt.show()
